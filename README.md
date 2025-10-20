@@ -1,4 +1,4 @@
-# Sonus (Laravel 4 Package)
+# Sonus (Laravel 5.0 Package)
 [![Latest Stable Version](https://poser.pugx.org/closca/sonus/v/stable.png)](https://packagist.org/packages/closca/sonus)
 [![Build Status](https://travis-ci.org/closca/sonus.png?branch=master)](https://travis-ci.org/closca/sonus)
 [![Total Downloads](https://poser.pugx.org/closca/sonus/downloads.png)](https://packagist.org/packages/closca/sonus)
@@ -8,7 +8,7 @@
 
 **** NOTE ****
 This is a duplicate of https://github.com/rafasamp/sonus. I have duplicated because the original package was  abandoned and i nedeed more stuffs for working with videos on Laravel.
-Sonus is a tool designed to leverage the power of **Laravel 4** and **ffmpeg** to perform tasks such as:
+Sonus is a tool designed to leverage the power of **Laravel 5.0** and **ffmpeg** to perform tasks such as:
 
 * Audio/Video conversion
 * Video thumbnail generation
@@ -21,9 +21,6 @@ Sonus is a tool designed to leverage the power of **Laravel 4** and **ffmpeg** t
 Update your `composer.json` file and add the following under the `require` key
 
 	"closca/sonus": "dev-master"
-For Laravel 5 use
-
-    "closca/sonus": "dev-l5"
 
 Run the composer update command:
 
@@ -53,9 +50,9 @@ Still under `config/app.php` add `'Sonus' => 'Closca\Sonus\Facade'` to the `$ali
 
 Run the `artisan` command below to publish the configuration file
 
-	$ php artisan config:publish Closca/Sonus
+	$ php artisan vendor:publish --provider="Closca\Sonus\SonusServiceProvider"
 
-Navigate to `app/config/packages/Closca/Sonus/config.php` and update all four parameters
+Navigate to `config/sonus.php` and update all the configuration parameters
 
 ### Examples
 

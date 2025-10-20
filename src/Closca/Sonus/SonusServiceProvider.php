@@ -18,7 +18,9 @@ class SonusServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('closca/sonus');
+		$this->publishes([
+			__DIR__.'/../../config/config.php' => config_path('sonus.php'),
+		]);
 	}
 
 	/**
@@ -28,7 +30,11 @@ class SonusServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['sonus'] = $this->app->share(function($app)
+		$this->mergeConfigFrom(
+			__DIR__.'/../../config/config.php', 'sonus'
+		);
+
+		$this->app->singleton('sonus', function($app)
         {
             return new Sonus;
         });

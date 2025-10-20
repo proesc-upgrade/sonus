@@ -19,7 +19,7 @@ class Sonus
      */
     protected static function getConverterPath()
     {
-        return Config::get('sonus::ffmpeg');
+        return Config::get('sonus.ffmpeg');
     }
 
     /**
@@ -28,7 +28,7 @@ class Sonus
      */
     protected static function getProbePath()
     {
-        return Config::get('sonus::ffprobe');
+        return Config::get('sonus.ffprobe');
     }
 
     /**
@@ -37,7 +37,7 @@ class Sonus
      */
     protected static function getTempPath()
     {
-        return Config::get('sonus::tmp_dir');
+        return Config::get('sonus.tmp_dir');
     }
 
     /**
@@ -568,7 +568,7 @@ class Sonus
         $cmd = escapeshellcmd($ffmpeg.' '.$input.' '.$arg.' '.$output);
 
         // Check if progress reporting is enabled
-        if (Config::get('sonus::progress') === true) 
+        if (Config::get('sonus.progress') === true) 
         {
             // Get temp dir
             $tmpdir = self::getTempPath();
@@ -673,6 +673,7 @@ class Sonus
     public static function destroyProgress($job) 
     {
         // Get temporary file path
+        $tmpdir = self::getTempPath();
         $file = $tmpdir.$job.'.sonustmp';
 
         // Check if file exists
@@ -692,6 +693,9 @@ class Sonus
      */
     public static function destroyAllProgress()
     {
+        // Get temporary file path
+        $tmpdir = self::getTempPath();
+        
         // Get all filenames within the temporary folder
         $files = glob($tmpdir.'*');
 
