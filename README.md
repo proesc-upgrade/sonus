@@ -1,4 +1,4 @@
-# Sonus (Laravel 5.0 Package)
+# Sonus (Laravel 5.1 Package)
 [![Latest Stable Version](https://poser.pugx.org/closca/sonus/v/stable.png)](https://packagist.org/packages/closca/sonus)
 [![Build Status](https://travis-ci.org/closca/sonus.png?branch=master)](https://travis-ci.org/closca/sonus)
 [![Total Downloads](https://poser.pugx.org/closca/sonus/downloads.png)](https://packagist.org/packages/closca/sonus)
@@ -8,7 +8,7 @@
 
 **** NOTE ****
 This is a duplicate of https://github.com/rafasamp/sonus. I have duplicated because the original package was  abandoned and i nedeed more stuffs for working with videos on Laravel.
-Sonus is a tool designed to leverage the power of **Laravel 5.0** and **ffmpeg** to perform tasks such as:
+Sonus is a tool designed to leverage the power of **Laravel 5.1** and **ffmpeg** to perform tasks such as:
 
 * Audio/Video conversion
 * Video thumbnail generation
@@ -26,27 +26,27 @@ Run the composer update command:
 
 	$ composer update
 
-In your `config/app.php` add `'Closca\Sonus\SonusServiceProvider'` to the end of the `$providers` array
+In your `config/app.php` add `Closca\Sonus\SonusServiceProvider::class` to the end of the `$providers` array
 
-    'providers' => array(
+    'providers' => [
 
-        'Illuminate\Foundation\Providers\ArtisanServiceProvider',
-        'Illuminate\Auth\AuthServiceProvider',
+        Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
+        Illuminate\Auth\AuthServiceProvider::class,
         ...
-        'Closca\Sonus\SonusServiceProvider',
+        Closca\Sonus\SonusServiceProvider::class,
 
-    ),
+    ],
 
-Still under `config/app.php` add `'Sonus' => 'Closca\Sonus\Facade'` to the `$aliases` array
+Still under `config/app.php` add `'Sonus' => Closca\Sonus\Facade::class` to the `$aliases` array
 
-    'aliases' => array(
+    'aliases' => [
 
-        'App'             => 'Illuminate\Support\Facades\App',
-        'Artisan'         => 'Illuminate\Support\Facades\Artisan',
+        'App'             => Illuminate\Support\Facades\App::class,
+        'Artisan'         => Illuminate\Support\Facades\Artisan::class,
         ...
-        'Sonus'           => 'Closca\Sonus\Facade',
+        'Sonus'           => Closca\Sonus\Facade::class,
 
-    ),
+    ],
 
 Run the `artisan` command below to publish the configuration file
 
