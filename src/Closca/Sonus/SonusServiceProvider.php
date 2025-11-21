@@ -5,13 +5,6 @@ use Illuminate\Support\ServiceProvider;
 class SonusServiceProvider extends ServiceProvider {
 
 	/**
-	 * Indicates if loading of the provider is deferred.
-	 *
-	 * @var bool
-	 */
-	protected $defer = false;
-
-	/**
 	 * Bootstrap the application events.
 	 *
 	 * @return void
@@ -47,7 +40,7 @@ class SonusServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array('sonus');
+		return ['sonus'];
 	}
 
 }

@@ -1,4 +1,4 @@
-# Sonus (Laravel 5.1 Package)
+# Sonus (Laravel 5.5+ Package)
 [![Latest Stable Version](https://poser.pugx.org/closca/sonus/v/stable.png)](https://packagist.org/packages/closca/sonus)
 [![Build Status](https://travis-ci.org/closca/sonus.png?branch=master)](https://travis-ci.org/closca/sonus)
 [![Total Downloads](https://poser.pugx.org/closca/sonus/downloads.png)](https://packagist.org/packages/closca/sonus)
@@ -8,7 +8,7 @@
 
 **** NOTE ****
 This is a duplicate of https://github.com/rafasamp/sonus. I have duplicated because the original package was  abandoned and i nedeed more stuffs for working with videos on Laravel.
-Sonus is a tool designed to leverage the power of **Laravel 5.1** and **ffmpeg** to perform tasks such as:
+Sonus is a tool designed to leverage the power of **Laravel 5.5+** and **ffmpeg** to perform tasks such as:
 
 * Audio/Video conversion
 * Video thumbnail generation
@@ -26,7 +26,9 @@ Run the composer update command:
 
 	$ composer update
 
-In your `config/app.php` add `Closca\Sonus\SonusServiceProvider::class` to the end of the `$providers` array
+**Laravel 5.5+ Auto-Discovery**: This package supports Laravel's package auto-discovery, so the service provider and facade alias will be automatically registered. If you're using Laravel 5.5 or higher, you can skip the manual registration steps below.
+
+**For Laravel 5.4 and below**, or if you've disabled auto-discovery, manually register the service provider in your `config/app.php`:
 
     'providers' => [
 
@@ -37,7 +39,7 @@ In your `config/app.php` add `Closca\Sonus\SonusServiceProvider::class` to the e
 
     ],
 
-Still under `config/app.php` add `'Sonus' => Closca\Sonus\Facade::class` to the `$aliases` array
+And add the facade alias:
 
     'aliases' => [
 

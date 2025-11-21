@@ -14,18 +14,28 @@
         }
     ],
     "require": {
-        "php": ">=5.5.9",
-        "illuminate/support": "5.1.*"
+        "php": ">=7.0",
+        "illuminate/support": "^5.5|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "4.1.*"
+        "phpunit/phpunit": "^6.0|^7.0|^8.0|^9.0|^10.0"
     },
     "autoload": {
         "classmap": [
             "src/migrations"
         ],
-        "psr-0": {
-            "Closca\\Sonus\\": "src/"
+        "psr-4": {
+            "Closca\\Sonus\\": "src/Closca/Sonus/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Closca\\Sonus\\SonusServiceProvider"
+            ],
+            "aliases": {
+                "Sonus": "Closca\\Sonus\\Facade"
+            }
         }
     },
     "minimum-stability": "dev"
